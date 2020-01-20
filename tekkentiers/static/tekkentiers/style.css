@@ -1,0 +1,50 @@
+.header {
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    color: white;
+}
+
+.rowButtons{
+    display: flex;
+    justify-content: center;
+}
+
+#tier-row {
+    background-color: grey;
+    border-style: solid;
+    border-color: black;
+}
+
+.characterCard {
+    padding: 5px;
+    position: sticky;
+}
+
+.portrait {
+    background-color: black;
+    cursor: pointer;
+    display: block;
+    font-family: Edo SZ;
+    color: white;
+    padding: 5px;
+}
+
+.nameplate {
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 14pt;
+}
+
+.tierInputField {
+    min-width: 48px;
+    width: 120px;
+    margin: 0;
+    text-align: center;
+    min-height: 120px;
+    outline: none;
+}
+
+

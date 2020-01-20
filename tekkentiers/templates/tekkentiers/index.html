@@ -1,0 +1,49 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'tekkentiers/style.css' %}" />
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<style type="text/css"> body { background: #1f1f1f !important; } </style>
+<script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+<script src="http://code.jquery.com/ui/1.8.21/jquery-ui.min.js"></script>
+
+<title>Tekken 7 Tier List</title>
+
+<div class="header">
+    <h1>
+        <img src="{% static 'tekkentiers/logo2.png' %}" width="240" height="116">
+    </h1>
+    <p>Instructions: <br> First make the rows. <br> Adjust the tier box size with the textbox located inside the colored area. <br> Drag and drop the characters into tier box. <br> Enjoy.</b></p>
+</div>
+
+<body>
+    <div class="container"> 
+        <form method="post">
+            {% csrf_token %}
+            {{ form }}
+            <div class="rowButtons">
+                <button onclick="addRow()" style="font-family: Edo SZ;" class="btn btn-dark" type="button">Add Row</button>
+                <button onclick="delRow()" style="font-family: Edo SZ;" class="btn btn-dark" type="button">Delete Row</button> 
+                <button onclick="shareList()" style="font-family: Edo SZ;" class="btn btn-dark" type="submit">Share This List</button> 
+            </div>
+            <div class="row-justify-content-center">
+                <div class="col" id="tier-rows"></div>
+                <div class="col">
+                    <div class="row">
+                        {% for character in character_list %}
+                        <div class="characterCard">
+                            <div class="portrait" id="{{ character.character_name }}">
+                                <img src="{{ character.character_portrait.url }}" style="height: 75px;">
+                                <div class="nameplate">{{ character.character_name }}</div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div> 
+
+    <script src="{% static 'tekkentiers/scripts.js' %}"></script>
+    <script src="{% static 'tekkentiers/jquery.ui.touch-punch.min.js' %}"></script>
+</body>
+
