@@ -49,14 +49,11 @@ def shareList(request, list_id):
 
         tiers = tierData['tier']
         rows = []
-    
-        
-        del tierData['tier']
 
+        del tierData['tier']
         for value in tierData.values():
             rows.append(value)
         
-
     except Tierlist.DoesNotExist:
         raise Http404("The Tierlist does not exist!")
 
